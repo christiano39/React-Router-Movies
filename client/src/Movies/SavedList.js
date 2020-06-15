@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, Link, useRouteMatch } from 'react-router-dom'
+import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
 
 const SavedList = props => {
   const history = useHistory()
@@ -13,9 +13,9 @@ const SavedList = props => {
     <div className="saved-list">
       <h3>Saved Movies:</h3>
       {props.list.map(movie => (
-        <Link to={`${url}movies/${movie.id}`} key={movie.title}>
+        <NavLink to={`${url}movies/${movie.id}`} key={movie.title} activeClassName='selected'>
           <span className="saved-movie" key={movie.title}>{movie.title}</span>
-        </Link>
+        </NavLink>
       ))}
       <div className="home-button" onClick={routeToHome}>Home</div>
     </div>
